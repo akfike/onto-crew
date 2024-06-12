@@ -1,0 +1,9 @@
+The domain and scope of the proposed ontology within this research proposal revolve around the use of artificial intelligence (AI) applications to boost Rural Resilience in Alabama State. This project, under the leadership of Principal Investigators Gong, Lee, and Geyer, seeks to leverage AI technology to augment data analysis and decision-making capabilities for the betterment of Alabama. 
+
+This initiative is supported by the establishment of an Artificial Intelligence Center at the University of Alabama, funded by a $2 million donation and aimed at fostering advanced research and development in AI. The center is set to act as a catalyst, bolstering PI Gong's ability to engage and collaborate with a diverse array of stakeholders, including government agencies, industry representatives, academia, non-profits, and citizen groups.
+
+The project will commence with a kickoff meeting to establish a clear understanding of the project’s objectives and timeline. Regular weekly meetings will be held to share progress, address challenges, brainstorm solutions, and adjust the project plan as needed. In-depth exploration of key themes will be facilitated through round-table discussions and specialized consultation sessions.
+
+Data integration and validation will be a crucial aspect of the endeavor, with collaboration expected with federal agencies, data repositories, and regional agencies to facilitate the data science workflow. The process will involve data inventory, curation, schema mapping, entity resolution, data integration and quality assessment, and data reconciliation.
+
+Finally, a data governance board with diverse stakeholder representatives will be formed for oversight, identified via the Community-Based Participatory Research process. The board will ensure that all aspects of the project adhere to the necessary legal and ethical frameworks, and that the knowledge gained is practically applicable in real-world scenarios.

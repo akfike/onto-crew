@@ -1,0 +1,7 @@
+The domain and scope of the proposed ontology in this research proposal is geared towards the creation of a Knowledge Graph (KG) system aimed at enhancing rural resilience. The focus of the project is to tackle the digital divide that rural communities face due to the limited access to affordable broadband internet, which has a significant impact on their ability to access and use healthcare services effectively.
+
+The proposal outlines the use of community-based participatory activities to improve resource allocation, aid in policy development, and encourage partnerships within these communities. The scope of the project is extensive and includes stakeholders from various fields such as researchers, educators, students, school administrators, and industry partners. 
+
+The ultimate objective of the project is to provide these stakeholders with an extensive and accessible knowledge graph, which is expected to significantly progress teaching and learning in the domain of knowledge graphs. 
+
+In summary, the ontology of this research proposal is centred on a community-oriented initiative that aims at using Knowledge Graphs to bridge the digital divide in rural communities and enhance their resilience, particularly in the context of healthcare services.
