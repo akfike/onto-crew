@@ -1,0 +1,9 @@
+The proposed ontology aims to create a cross-domain knowledge graph to integrate health and justice for enhancing the resilience of rural communities. The domain of this proposed ontology covers public health, environmental crises, social determinants of health, and justice within rural locales. 
+
+Specifically, under public health, the project will focus on the accessibility and quality of healthcare services, which could include primary care, mental health services, and health education. The project will also examine the impact of environmental crises on rural communities, looking at how factors such as climate change and pollution affect health. 
+
+In terms of social determinants of health, the project will consider a range of factors that influence health outcomes in rural settings, such as socioeconomic status, education, employment, and social support networks. The project will also delve into justice issues, focusing on health justice in rural communities. This could cover access to justice, the impact of legal issues on health, and the role of law in addressing health inequalities.
+
+The scope of the ontology is to construct an extensive, interdisciplinary knowledge graph that merges, portrays, and interconnects these aspects of health and justice. The goal is to provide a holistic understanding of health and justice in rural communities, informing interventions to enhance their resilience.
+
+The project will leverage existing geo-enrichment services and initiatives, such as Esri's ArcGIS, Google Maps Platform, Bing Maps, the Open Geospatial Consortium (OGC), and the Group on Earth Observations (GEO). These services will add geographic, demographic, and landscape context to the health and justice datasets. As a result, the ontology will provide a comprehensive contextual view of health and justice in rural areas, aiding researchers, practitioners, and educators in their efforts to enhance resilience in these communities.

@@ -80,3 +80,25 @@ def read_and_tokenize_csv(file_path: str, chunk_size: int = 800):
             continue  # Try the next encoding if the current one fails
 
     return [f"Failed to read the file {file_path}. Error: {str(e)}"]
+
+def read_and_tokenize_txt(file_path: str, chunk_size: int = 800):
+    """Reads a text file and extracts its text content in tokenized chunks."""
+    try:
+        with open(file_path, 'r', encoding='utf-8') as file:
+            text = file.read()
+
+        # Initialize the GPT-3 tokenizer
+        tokenizer = tiktoken.get_encoding("cl100k_base")
+
+        # Tokenize the text
+        tokens = tokenizer.encode(text)
+
+        # Split tokens into chunks
+        chunks = [tokens[i:i + chunk_size] for i in range(0, len(tokens), chunk_size)]
+
+        # Decode chunks back to text
+        chunk_texts = [tokenizer.decode(chunk) for chunk in chunks]
+
+        return chunk_texts
+    except Exception as e:
+        return [f"Failed to read the file {file_path}. Error: {str(e)}"]

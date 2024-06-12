@@ -28,6 +28,19 @@ class OntoAgents():
             allow_delegation=True
         )
     
+    def ontology_expert(self):
+        return Agent(
+            role="Ontology Expert",
+            goal="You are an expert in ontologies in terms of what they are, how they are created, what they should consist of, and how they should be formatted.",
+            backstory=(
+                "You specialize in researching topics on what ontologies are, ontology development, and ontology development pipelines."
+            ),
+            verbose=True,
+            memory=True,
+            tools=[],
+            allow_delegation=True
+        )
+    
     def ontology_developer(self):
         return Agent(
             role='Ontology Developer',

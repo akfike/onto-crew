@@ -21,6 +21,7 @@ class OntoCrew:
 
         # ontology_evaluator = agents.ontology_evaluator()
         # ontology_developer = agents.ontology_developer()
+        ontology_development_expert = agents.ontology_expert()
         ontology_researcher = agents.existing_ontology_researcher()
         proposal_expert = agents.proposal_expert_agent()
         
@@ -28,27 +29,39 @@ class OntoCrew:
         chunks = read_and_tokenize_pdf('NSF--OKN.pdf')
 
         results = []
-        all_proposal_tasks = []
-        recent_proposal_task = None
-        for idx, chunk in enumerate(chunks):
-            # Create a task for each chunk
-            if idx == 0:
-                understand_proposal_task_first = tasks.understand_proposal_first(proposal_expert, chunk, idx)
-                all_proposal_tasks.append(understand_proposal_task_first)
-                recent_proposal_task = understand_proposal_task_first
-            else:
-                understand_proposal_task = tasks.understand_proposal(proposal_expert, chunk, idx, recent_proposal_task)
-                all_proposal_tasks.append(understand_proposal_task)
-                recent_proposal_task = understand_proposal_task
+        # all_proposal_tasks = []
+        # recent_proposal_task = None
+        # for idx, chunk in enumerate(chunks):
+        #     # Create a task for each chunk
+        #     if idx == 0:
+        #         understand_proposal_task_first = tasks.understand_proposal_first(proposal_expert, chunk, idx)
+        #         all_proposal_tasks.append(understand_proposal_task_first)
+        #         recent_proposal_task = understand_proposal_task_first
+        #     else:
+        #         understand_proposal_task = tasks.understand_proposal(proposal_expert, chunk, idx, recent_proposal_task)
+        #         all_proposal_tasks.append(understand_proposal_task)
+        #         recent_proposal_task = understand_proposal_task
         
+        context_chunks = read_and_tokenize_txt("last_text.txt")
+
+        # research_existing_ontologies_task = tasks.research_existing_ontologies(ontology_researcher, all_proposal_tasks) 
         
-        research_existing_ontologies_task = tasks.research_existing_ontologies(ontology_researcher, all_proposal_tasks) 
+        all_tasks = []
+        for chunk in context_chunks:
+            research_existing_ontologies_task = tasks.research_existing_ontologies(ontology_researcher, chunk) 
+            all_tasks.append(research_existing_ontologies_task)
 
-        all_proposal_tasks.append(research_existing_ontologies_task)       
+        ontology_research_task = tasks.research_ontology_development(ontology_development_expert)    
 
+        all_tasks.append(ontology_research_task)
+        # all_proposal_tasks.append(research_existing_ontologies_task)
+        # all_proposal_tasks.append(ontology_research_task)
+        
         crew = Crew(
-                agents=[proposal_expert],
-                tasks=all_proposal_tasks,
+                agents=[ontology_researcher, ontology_development_expert],
+                # agents=[proposal_expert, ontology_researcher, ontology_development_expert],
+                # tasks=all_proposal_tasks,
+                tasks=all_tasks,
                 verbose=True,
                 process=Process.hierarchical,
                 manager_llm=OpenAIGPT4,
@@ -58,46 +71,6 @@ class OntoCrew:
         results.append(result)
 
         return results
-
-        # chunks = read_and_tokenize_md('proposal_summary.md')
-        
-        # results = []
-        # for idx, chunk in enumerate(chunks):
-        #     # Create a task for each chunk
-        #     research_existing_ontologies_task = tasks.research_existing_ontologies(ontology_researcher, chunk, idx)
-        #     crew = Crew(
-        #         agents=[ontology_researcher],
-        #         tasks=[research_existing_ontologies_task],
-        #         verbose=True,
-        #         max_rpm=60  # Set the maximum number of requests per minute
-        #     )
-        #     result = crew.kickoff(inputs={"chunk_text": chunk})
-        #     results.append(result)
-        
-        # return results
-
-        # chunks = read_and_tokenize_md('proposal_summary.md')
-
-        # file_path = 'ontology_top_level_0.txt'
-
-        # # Open the file in read mode and read the content
-        # with open(file_path, 'r') as file:
-        #     file_content = file.read()
-
-        # results = []
-        # for idx, chunk in enumerate(chunks):
-        #     # Create a task for each chunk
-        #     evaluate_ontology_task = tasks.evaluate_ontology(ontology_evaluator, chunk, idx, file_content)
-        #     crew = Crew(
-        #         agents=[ontology_evaluator],
-        #         tasks=[evaluate_ontology_task],
-        #         verbose=True,
-        #         max_rpm=60  # Set the maximum number of requests per minute
-        #     )
-        #     result = crew.kickoff(inputs={"chunk_text": chunk})
-        #     results.append(result)
-        
-        # return results
 
 
 if __name__ == "__main__":

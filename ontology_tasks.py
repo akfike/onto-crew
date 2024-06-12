@@ -21,7 +21,7 @@ class OntoTasks:
         return Task(
             description=description,
             expected_output=expected_output,
-            tools=[],  # Ensure this is a list
+            tools=[], 
             agent=agent,
             output_file=f"proposal_summary_{chunk_number}.md"
         )
@@ -42,19 +42,48 @@ class OntoTasks:
             output_file=f"proposal_summary_{chunk_number}.md"
         )
     
-    def research_existing_ontologies(self, agent, context):
+    # def research_existing_ontologies(self, agent, context):
+    #     return Task(
+    #         description=(
+    #             """ Given the context from the previous tasks implemented to 
+    #             understand the research proposal, this task involves searching the internet and research literature
+    #             for existing ontologies that relate to our research topic on social determinants of health
+    #             and justice."""
+    #         ),
+    #         expected_output='A report on existing ontologies that can be reused. For each presented ontology the format should be like this: Name: Example Ontology, Link: www.exampleonto.com, Summary: This ontology includes concepts such as a, b, c,. ',
+    #         tools=[search_tool],
+    #         agent=agent,
+    #         context=context,
+    #         output_file="existing_ontologies_report.md"
+    #     )
+
+    def research_existing_ontologies(self, agent, text):
         return Task(
             description=(
-                """ Given the context from the previous tasks implemented to 
+                f""" Given the context from the previous tasks implemented to 
                 understand the research proposal, this task involves searching the internet and research literature
                 for existing ontologies that relate to our research topic on social determinants of health
-                and justice."""
+                and justice.
+                
+                Context: {text}"""
             ),
             expected_output='A report on existing ontologies that can be reused. For each presented ontology the format should be like this: Name: Example Ontology, Link: www.exampleonto.com, Summary: This ontology includes concepts such as a, b, c,. ',
             tools=[search_tool],
             agent=agent,
-            context=context,
             output_file="existing_ontologies_report.md"
+        )
+
+    def research_ontology_development(self, agent):
+        return Task(
+            description=(
+                """ Research what an ontology is on the internet and in research literature. Learn the common practices of developing
+                ontologies, what they are supposed to convey, and how they are supposed to be formatted. Also view existing reputable ontologies for examples
+                of good ontologies.
+            """
+            ),
+            expected_output="A report on what an ontology is, a list of steps to develop and ontology, and an example of how an ontology should be formatted.",
+            agent=agent,
+            output_file="ontology_report.md"
         )
     
     def develop_ontology_from_codebook(self, agent, chunk, chunk_number):
