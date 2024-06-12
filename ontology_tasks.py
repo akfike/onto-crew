@@ -110,3 +110,38 @@ class OntoTasks:
             agent=agent,
             output_file=f"ontology_top_level_{proposal_chunk_number}.txt"
         )
+    
+    def understand_ontology_domain(self, agent):
+        return Task(
+            description = (
+                "Research online and in research literature about the National Survey on Drug Use and Health regarding its domain, scope, what data it collects, and how the data is used. Also, you need to have a general idea of the variables that appear in the datasets in terms of what they represent."
+            ),
+            expected_output="A paragraph or two that summarizes the domain and scope of the National Survey on Drug Use and Health as well as a list of the main concepts covered in the datasets.",
+            tools=[search_tool],
+            agent=agent,
+            output_file="NSDUH_research.md"
+        )
+    
+    def identify_and_define_classes(self, agent, context):
+        return Task(
+            description = (
+                "Identify the highest level of classes based on the domain and the scope of the ontology. For this, create an ontology built off of the National Survey on Drug Use and Health concepts, topics, and data."
+            ),
+            expected_output='A list of classes with a short description in this format: ClassABC - This class refers to abc and is derived from NSDUH questions regarding abc.',
+            tools=[search_tool],
+            agent=agent,
+            context=context,
+            output_file="highest_level_classes_ontology.md"
+        )
+    
+    def identify_and_define_subclasses(self, agent, context):
+        return Task(
+            description = (
+                "Identify and define subclasses of the classes found previously based on the domain and the scope of the ontology. For context, we are creating an ontology built off of the National Survey on Drug Use and Health concepts, topics, and data."
+            ),
+            expected_output='A list of classes and their corresponding subclasses with a short description in this format: ClassABC/Subclass1 - This subclass refers to abc and is derived from NSDUH questions regarding abc.',
+            tools=[search_tool],
+            agent=agent,
+            context=context,
+            output_file="secondary_level_classes_ontology.md"
+        )

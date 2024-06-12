@@ -1,0 +1,9 @@
+The highest level of classes for an ontology built off of the National Survey on Drug Use and Health (NSDUH) concepts, topics, and data are:
+
+1. Substance Use - This class refers to the use of substances such as illicit drugs, alcohol, and tobacco, and is derived from NSDUH questions regarding the use of these substances. Properties include frequency of use, age at first use, reasons for use, and type of substance.
+2. Substance Use Disorders - This class relates to disorders resulting from substance use, with properties such as the type of disorder, severity, duration, and whether treatment was received, as reflected in NSDUH data.
+3. Treatment - This class focuses on the treatment received for substance use disorders, with properties including the type, duration, and outcome of treatment, as derived from NSDUH data.
+4. Mental Health - This class involves mental health issues and their correlation with substance use, with properties such as the type of mental health issue, severity, duration, and the treatment received, as documented in NSDUH data.
+5. Demographics - This class encapsulates variables related to demographic characteristics such as age, gender, race, and socioeconomic status, which can be used to analyze substance use and mental health issues among different population groups, based on NSDUH data.
+6. Relationships - This class captures the relationships between the other ontology classes, such as the correlation between substance use and mental health issues, or between certain demographic factors and substance use or mental health issues, as reflected in NSDUH data.
+7. Population - This class represents the scope of the NSDUH, focusing on the civilian, non-institutionalized population of the United States aged 12 years old or older, as defined by the NSDUH.

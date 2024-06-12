@@ -1,0 +1,10 @@
+The National Survey on Drug Use and Health (NSDUH) is an annual survey sponsored by the Substance Abuse and Mental Health Services Administration (SAMHSA), a part of the U.S. Department of Health and Human Services (DHHS). The survey serves as the primary source of information on the use of illicit drugs, alcohol, and tobacco in the civilian, non-institutionalized population of the United States aged 12 years old or older.
+
+The data collected by NSDUH is used for multiple purposes, including to:
+1. Estimate the number of individuals who have used specific substances, had substance use disorders, and received treatment for those disorders.
+2. Measure trends over time in the use of substances, substance use disorders, and receipt of treatment.
+3. Provide information on the correlation between substance use and mental health.
+
+The NSDUH datasets typically include variables related to demographic characteristics (e.g., age, sex, race/ethnicity, educational level, employment status), detailed information on the use of various substances (e.g., illicit drugs, prescription drugs, alcohol, and tobacco), substance use disorders, treatment for substance use, and mental health issues (e.g., mental health treatment/counseling, serious mental illness).
+
+To ensure the quality and reliability of the data, NSDUH uses rigorous survey methodology including computer-assisted interviewing techniques and a multistage area probability sample design. The survey also includes measures to protect the privacy of respondents and maintain the confidentiality of the data. Understanding the domain, structure, and scope of the NSDUH datasets is crucial for developing an ontology, as it will allow you to accurately represent the information in the datasets and facilitate effective data analysis and interpretation.

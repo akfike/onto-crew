@@ -41,26 +41,26 @@ class OntoAgents():
             allow_delegation=True
         )
     
-    def ontology_developer(self):
-        return Agent(
-            role='Ontology Developer',
-            goal=(
-                'Create the top-level ontology hierarchy based on the partially provided dataset codebook. '
-                'The structure of the codebook is a csv with the columns Question_Code, Long_Description, '
-                'Short_Description, Related_Variables, Answer_code, and Answer_meaning.'
-                'Question_code refers to the variable name in the dataset. Long_Description refers to the longer description from the codebook of what the variable represents.'
-                'Short_Description provides the abbreviated version of the variable\'s description.'
-                'Ignore Related_Variables. Answer_code refers to each potential value for a given variable.'
-                'Answer_code describes what the answer_code means for that variable.'
-            ),
-            verbose=True,
-            memory=True,
-            backstory=(
-                "You specialize in reading dataset codebooks and creating the foundational structure of ontologies that integrate the variables in a meaningful way."
-            ),
-            tools=[],
-            allow_delegation=True
-        )
+    # def ontology_developer(self):
+    #     return Agent(
+    #         role='Ontology Developer',
+    #         goal=(
+    #             'Create the top-level ontology hierarchy based on the partially provided dataset codebook. '
+    #             'The structure of the codebook is a csv with the columns Question_Code, Long_Description, '
+    #             'Short_Description, Related_Variables, Answer_code, and Answer_meaning.'
+    #             'Question_code refers to the variable name in the dataset. Long_Description refers to the longer description from the codebook of what the variable represents.'
+    #             'Short_Description provides the abbreviated version of the variable\'s description.'
+    #             'Ignore Related_Variables. Answer_code refers to each potential value for a given variable.'
+    #             'Answer_code describes what the answer_code means for that variable.'
+    #         ),
+    #         verbose=True,
+    #         memory=True,
+    #         backstory=(
+    #             "You specialize in reading dataset codebooks and creating the foundational structure of ontologies that integrate the variables in a meaningful way."
+    #         ),
+    #         tools=[],
+    #         allow_delegation=True
+    #     )
     
     def ontology_evaluator(self):
         return Agent(
@@ -71,5 +71,35 @@ class OntoAgents():
             backstory=('Decisive and critical, you can decide whether or not each class listed is needed or not in our ontology.'),
             tools=[],
             allow_delegation=True
+        )
+    
+    def domain_expert(self):
+        return Agent(
+            role="Domain Expert",
+            goal="Your aim is to understand completely the domain, structure, and scope of the National Survey on Drug and Health (NSDUH) datasets.",
+            backstory=('You have intimate knowledge of what NSDUH is, what data they collect, and the purposes for which the data is to be used.'),
+            verbose=True,
+            memory=True,
+            allow_delegation=True
+        )
+    
+    def ontology_developer(self):
+        return Agent(
+            role="Ontology Developer",
+            goal="Your aim is to be able to identify and define the highest level of classes/concepts of an ontology of a specific domain.",
+            backstory=("You are able to generalize and aggregate concepts well in order to form topmost level classes of ontologies."),
+            verbose=True,
+            memory=True,
+            allow_delegation=True
+        )
+    
+    def ontology_subclass_developer(self):
+        return Agent(
+            role="Ontology Subclass Developer",
+            goal="Your aim is to define subclasses of a class in an ontology, considering that a class can have multiple subclasses and a subclass can have multiple superclasses.",
+            backstory=("You are able to breakdown classes and concepts into more specific classes and concepts."),
+            verbose=True,
+            memory=True,
+            allow_delegation=True,
         )
    
