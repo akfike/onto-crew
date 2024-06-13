@@ -1,0 +1,80 @@
+```turtle
+Prefix: owl: <http://www.w3.org/2002/07/owl#>
+Prefix: rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+Prefix: rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+Prefix: xsd: <http://www.w3.org/2001/XMLSchema#>
+
+Ontology: <http://www.example.org/mental_health_ontology>
+  
+  Class: SubstanceUseDisorders
+  SubClassOf: owl:Thing
+  
+  Class: AlcoholUseDisorder
+  SubClassOf: SubstanceUseDisorders
+  
+  Class: OpioidUseDisorder
+  SubClassOf: SubstanceUseDisorders
+  
+  Class: StimulantUseDisorder
+  SubClassOf: SubstanceUseDisorders
+  
+  Class: MarijuanaUseDisorder
+  SubClassOf: SubstanceUseDisorders
+  
+  Class: HallucinogenUseDisorder
+  SubClassOf: SubstanceUseDisorders
+  
+  Class: MentalHealthDisorders
+  SubClassOf: owl:Thing
+  
+  Class: AnxietyDisorders
+  SubClassOf: MentalHealthDisorders
+  
+  Class: MoodDisorders
+  SubClassOf: MentalHealthDisorders
+  
+  Class: EatingDisorders
+  SubClassOf: MentalHealthDisorders
+  
+  Class: PersonalityDisorders
+  SubClassOf: MentalHealthDisorders
+  
+  Class: SchizophreniaAndOtherPsychoticDisorders
+  SubClassOf: MentalHealthDisorders
+  
+  Class: RiskFactors
+  SubClassOf: owl:Thing
+  
+  Class: GeneticPredisposition
+  SubClassOf: RiskFactors
+  
+  Class: EnvironmentalFactors
+  SubClassOf: RiskFactors
+  
+  Class: PeerInfluence
+  SubClassOf: RiskFactors
+  
+  Class: StressfulLifeEvents
+  SubClassOf: RiskFactors
+  
+  Class: LackOfAccessToTreatment
+  SubClassOf: RiskFactors
+  
+  Class: ProtectiveFactors
+  SubClassOf: owl:Thing
+  
+  Class: StrongSupportSystem
+  SubClassOf: ProtectiveFactors
+  
+  Class: PositiveCopingMechanisms
+  SubClassOf: ProtectiveFactors
+  
+  Class: HealthyLifestyleChoices
+  SubClassOf: ProtectiveFactors
+  
+  Class: AccessToMentalHealthServices
+  SubClassOf: ProtectiveFactors
+  
+  Class: StableEmployment
+  SubClassOf: ProtectiveFactors
+```

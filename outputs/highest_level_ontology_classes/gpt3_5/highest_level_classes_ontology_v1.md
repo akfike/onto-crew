@@ -1,0 +1,8 @@
+- Substance Use - This class refers to data related to substance use behaviors, initiation of substance use, perceived risk, availability of substances, and consequences of substance use as collected by NSDUH.
+- Mental Health - This class refers to data pertaining to mental health disorders, treatment utilization, and other related topics covered in the NSDUH survey.
+- Demographics - This class includes demographic information such as age, gender, race, income, education, and other relevant factors collected by NSDUH.
+- Substance Use Behaviors - This class focuses on behaviors related to substance use, including frequency of use, methods of use, and patterns of use observed in the NSDUH data.
+- Initiation of Substance Use - This class covers data related to the initiation of substance use, including age of onset, reasons for initiation, and trends in substance use initiation based on NSDUH responses.
+- Risk Perception - This class involves data on how substances are perceived in terms of risk and availability, including attitudes towards substance use and perceived risks associated with different substances gathered by NSDUH.
+- Consequences of Substance Use - This class includes information on the consequences of substance use, such as health effects, social implications, legal consequences, and other outcomes resulting from substance use based on NSDUH findings.
+- Other relevant categories - This class encompasses additional topics covered in the NSDUH survey that do not fall under the aforementioned classes but are still relevant for understanding substance use and mental health trends in the U.S. population.

@@ -1,4 +1,5 @@
 # main_script.py
+import os
 from crewai import Crew, Process
 from langchain_openai import ChatOpenAI
 from ontology_agents import OntoAgents
@@ -8,8 +9,8 @@ from tools.pdf_preprocessing import * # Import the preprocessing function
 from dotenv import load_dotenv
 load_dotenv()
 
-OpenAIGPT4 = ChatOpenAI(
-    model="gpt-4"
+OpenAIGPT3_5 = ChatOpenAI(
+    model="gpt-3.5-turbo-0125"
 )
 
 class OntoCrew:
@@ -26,6 +27,8 @@ class OntoCrew:
         domain_expert_agent = agents.domain_expert()
         ontology_developer_agent = agents.ontology_developer()
         ontology_subclass_developer_agent = agents.ontology_subclass_developer()
+        onto_to_owl_converter_agent = agents.owl_conversion_agent()
+        owl_expert_agent = agents.owl_expert()
         # ontology_researcher = agents.existing_ontology_researcher()
         # proposal_expert = agents.proposal_expert_agent()
         
@@ -82,12 +85,16 @@ class OntoCrew:
 
         define_secondary_level_ontology = tasks.identify_and_define_subclasses(ontology_subclass_developer_agent, [create_highest_level_ontology])
 
+        research_owl_task = tasks.research_owl(owl_expert_agent)
+
+        convert_onto_to_owl_task = tasks.convert_ontology_to_owl(onto_to_owl_converter_agent, [research_owl_task, define_secondary_level_ontology])
+
         crew = Crew(
-            agents=[domain_expert_agent, ontology_development_expert, ontology_developer_agent, ontology_subclass_developer_agent],
-            tasks = [understand_how_to_make_ontology_task, understand_ontology_domain_task, create_highest_level_ontology, define_secondary_level_ontology],
+            agents=[domain_expert_agent, ontology_development_expert, ontology_developer_agent, ontology_subclass_developer_agent, onto_to_owl_converter_agent],
+            tasks = [understand_how_to_make_ontology_task, understand_ontology_domain_task, create_highest_level_ontology, define_secondary_level_ontology, research_owl_task, convert_onto_to_owl_task],
             verbose=True,
             process=Process.hierarchical,
-            manager_llm=OpenAIGPT4,
+            manager_llm=OpenAIGPT3_5,
             max_rpm=60
         )
         results = crew.kickoff()

@@ -1,0 +1,4 @@
+Substance Use Disorders - This class refers to substance use disorders and is derived from NSDUH data related to alcohol use disorder, drug use disorder, and nicotine use disorder.
+Mental Health Disorders - This class refers to mental health disorders and is derived from NSDUH data related to depression, anxiety disorders, and PTSD.
+Risk Factors - This class refers to risk factors and is derived from NSDUH data related to socioeconomic status, family history, and peer influence.
+Protective Factors - This class refers to protective factors and is derived from NSDUH data related to supportive relationships, access to healthcare, and education level.

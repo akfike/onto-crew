@@ -145,3 +145,24 @@ class OntoTasks:
             context=context,
             output_file="secondary_level_classes_ontology.md"
         )
+
+    def research_owl(self, agent):
+        return Task(
+            description=("Research the internet to understand what the Web Ontology Language (OWL) is and how to create an ontology in this format."),
+            expected_output="A paragraph summarizing your findings as well as a simple OWL formatted ontology (on any topic you choose).",
+            tools=[search_tool],
+            agent=agent,
+            output_file="owl_research.md"
+        )
+    
+    def convert_ontology_to_owl(self, agent, context):
+        return Task(
+            description=(
+                "Formalize the ontology (represented by classes and subclasses) into the Web Ontology Language (OWL)."
+            ),
+            expected_output="""A correctly formatted, syntactically correct owl file that can be imported into Protegé""",
+            tools=[search_tool],
+            agent=agent,
+            context=context,
+            output_file="preliminary_ontology.owl"
+        )

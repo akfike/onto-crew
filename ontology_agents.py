@@ -1,4 +1,8 @@
 from crewai import Agent
+import os 
+
+from dotenv import load_dotenv
+load_dotenv()
 
 class OntoAgents():
 
@@ -98,6 +102,26 @@ class OntoAgents():
             role="Ontology Subclass Developer",
             goal="Your aim is to define subclasses of a class in an ontology, considering that a class can have multiple subclasses and a subclass can have multiple superclasses.",
             backstory=("You are able to breakdown classes and concepts into more specific classes and concepts."),
+            verbose=True,
+            memory=True,
+            allow_delegation=True,
+        )
+    
+    def owl_expert(self):
+        return Agent(
+            role="OWL Expert",
+            goal="To research and understand what the Web Ontology Language (OWL) structure is and how to use it to formalize ontologies.",
+            backstory=("You are highly knowledge in what OWL is and how it should look. You can generate a correctly formatted OWL file if you needed to."),
+            verbose=True,
+            memory=True,
+            allow_delegation=True,
+        )
+    
+    def owl_conversion_agent(self):
+        return Agent(
+            role="OWL Conversion Agent",
+            goal="Your aim is to represent the classes and subclasses gathered in a formal language, specifically the Web Ontology Language (OWL), that allows automated reasoning.",
+            backstory=("You are knowledgeable about the OWL structure and how to convert an ontology into OWL format."),
             verbose=True,
             memory=True,
             allow_delegation=True,

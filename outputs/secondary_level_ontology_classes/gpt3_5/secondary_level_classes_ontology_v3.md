@@ -1,0 +1,5 @@
+ClassSubstanceUse/ClassAlcoholUse - This subclass refers to alcohol consumption and is derived from NSDUH questions regarding binge drinking, alcohol dependence, and underage drinking.
+ClassSubstanceUse/ClassTobaccoUse - This subclass refers to tobacco product usage and is derived from NSDUH questions regarding smoking, chewing tobacco, and e-cigarette use.
+ClassSubstanceUse/ClassIllicitDrugUse - This subclass refers to the use of illegal substances and is derived from NSDUH questions regarding marijuana, cocaine, heroin, and methamphetamine.
+ClassSubstanceUse/ClassPrescriptionDrugMisuse - This subclass refers to the misuse of prescription medications and is derived from NSDUH questions regarding opioid misuse, stimulant abuse, and tranquilizer misuse.
+ClassSubstanceUse/ClassPolydrugUse - This subclass refers to the concurrent use of multiple substances and is derived from NSDUH questions regarding the combination of alcohol, drugs, and/or medications.
