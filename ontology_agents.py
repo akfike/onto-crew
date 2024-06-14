@@ -1,8 +1,13 @@
 from crewai import Agent
+from crewai_tools import SerperDevTool
 import os 
 
 from dotenv import load_dotenv
 load_dotenv()
+
+serper_api_key = os.getenv("SERPER_API_KEY")
+
+search_tool = SerperDevTool()
 
 class OntoAgents():
 
@@ -124,6 +129,17 @@ class OntoAgents():
             backstory=("You are knowledgeable about the OWL structure and how to convert an ontology into OWL format."),
             verbose=True,
             memory=True,
+            allow_delegation=True,
+        )
+    
+    def topic_researcher(self, topic):
+        return Agent(
+            role=f"{topic} expert",
+            goal=f"Your goal is to search on the internet and in research literature the topic of {topic}.",
+            backstory=f"Diligently and exhaustively, you search the internet and aggregate information on {topic}",
+            verbose=True,
+            memory=True,
+            tools=[search_tool],
             allow_delegation=True,
         )
    

@@ -127,7 +127,7 @@ class OntoTasks:
             description = (
                 "Identify the highest level of classes based on the domain and the scope of the ontology. For this, create an ontology built off of the National Survey on Drug Use and Health concepts, topics, and data."
             ),
-            expected_output='A list of classes with a short description in this format: ClassABC - This class refers to abc and is derived from NSDUH questions regarding abc.',
+            expected_output='A list of classes (top 5) with a short description in this format: 1. ClassABC - This class refers to abc and is derived from NSDUH questions regarding abc.',
             tools=[search_tool],
             agent=agent,
             context=context,
@@ -165,4 +165,13 @@ class OntoTasks:
             agent=agent,
             context=context,
             output_file="preliminary_ontology.owl"
+        )
+    
+    def research_topic(self, agent, topic):
+        return Task(
+            description=(f"Research the topic of {topic} and how it is represented in the National Survey on Drug Use and Health (NSDUH). Can you flesh out this topic into major subtopics?"),
+            expected_output="""A text file with a list of subtopics (i.e., 1. FirstTopic, 2. SecondTopic, 3. ThirdTopic, etc.)""",
+            tools=[search_tool],
+            agent=agent,
+            output_file=f"{topic}_subtopics.md"
         )

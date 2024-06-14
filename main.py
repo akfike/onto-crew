@@ -15,6 +15,14 @@ OpenAIGPT3_5 = ChatOpenAI(
 
 class OntoCrew:
 
+    onto_topics = [
+        "Substance Use Disorders",
+        "Mental Health Disorders",
+        "Prescription Drug Misuse",
+        "Prevention and Treatment Programs",
+        "Epidemiology and Data Analysis",
+    ]
+
     def run(self):
         agents = OntoAgents()
         tasks = OntoTasks()
@@ -29,6 +37,9 @@ class OntoCrew:
         ontology_subclass_developer_agent = agents.ontology_subclass_developer()
         onto_to_owl_converter_agent = agents.owl_conversion_agent()
         owl_expert_agent = agents.owl_expert()
+        agents_for_topics = []
+        for topic in self.onto_topics:
+            agents_for_topics.append(agents.topic_researcher(topic))
         # ontology_researcher = agents.existing_ontology_researcher()
         # proposal_expert = agents.proposal_expert_agent()
         
@@ -77,21 +88,27 @@ class OntoCrew:
         # result = crew.kickoff()
         # results.append(result)
 
-        understand_how_to_make_ontology_task = tasks.research_ontology_development(ontology_development_expert)
+        # understand_how_to_make_ontology_task = tasks.research_ontology_development(ontology_development_expert)
 
-        understand_ontology_domain_task = tasks.understand_ontology_domain(domain_expert_agent)
+        # understand_ontology_domain_task = tasks.understand_ontology_domain(domain_expert_agent)
 
-        create_highest_level_ontology = tasks.identify_and_define_classes(ontology_developer_agent, [understand_how_to_make_ontology_task, understand_ontology_domain_task])
+        # create_highest_level_ontology = tasks.identify_and_define_classes(ontology_developer_agent, [understand_how_to_make_ontology_task, understand_ontology_domain_task])
 
-        define_secondary_level_ontology = tasks.identify_and_define_subclasses(ontology_subclass_developer_agent, [create_highest_level_ontology])
+        # define_secondary_level_ontology = tasks.identify_and_define_subclasses(ontology_subclass_developer_agent, [create_highest_level_ontology])
 
-        research_owl_task = tasks.research_owl(owl_expert_agent)
+        # research_owl_task = tasks.research_owl(owl_expert_agent)
 
-        convert_onto_to_owl_task = tasks.convert_ontology_to_owl(onto_to_owl_converter_agent, [research_owl_task, define_secondary_level_ontology])
+        # convert_onto_to_owl_task = tasks.convert_ontology_to_owl(onto_to_owl_converter_agent, [research_owl_task, define_secondary_level_ontology])
+
+        topic_tasks = []
+        for idx, topic in enumerate(self.onto_topics):
+            topic_tasks.append(tasks.research_topic(agents_for_topics[idx], topic))
 
         crew = Crew(
-            agents=[domain_expert_agent, ontology_development_expert, ontology_developer_agent, ontology_subclass_developer_agent, onto_to_owl_converter_agent],
-            tasks = [understand_how_to_make_ontology_task, understand_ontology_domain_task, create_highest_level_ontology, define_secondary_level_ontology, research_owl_task, convert_onto_to_owl_task],
+            agents=agents_for_topics,
+            tasks=topic_tasks,
+            # agents=[domain_expert_agent, ontology_development_expert, ontology_developer_agent, ontology_subclass_developer_agent, onto_to_owl_converter_agent],
+            # tasks = [understand_how_to_make_ontology_task, understand_ontology_domain_task, create_highest_level_ontology, define_secondary_level_ontology, research_owl_task, convert_onto_to_owl_task],
             verbose=True,
             process=Process.hierarchical,
             manager_llm=OpenAIGPT3_5,
